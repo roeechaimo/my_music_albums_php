@@ -5,6 +5,7 @@ class Albums_ctrl extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('session');
+        header("Access-Control-Allow-Origin: *");
         header('content-type: application/json; charset=UTF-8');
         $this->load->model('Album_model');
     }
@@ -74,9 +75,3 @@ class Albums_ctrl extends CI_Controller {
 /**
  * @todo Description: validations for image file extentions
  */
-
-
-
-
-
-

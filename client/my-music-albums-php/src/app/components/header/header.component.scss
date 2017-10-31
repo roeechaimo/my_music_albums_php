@@ -1,0 +1,19 @@
+header {
+  border-bottom: 1px solid #B0C4DE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    flex-basis: 42%;
+
+    img {
+      height: 6vh;
+      width: 6vh;
+    }
+  }
+
+  .header {
+    flex-basis: 58%;
+  }
+}
