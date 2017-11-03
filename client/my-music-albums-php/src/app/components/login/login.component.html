@@ -2,14 +2,18 @@
   <div class="modal-container">
     <div class="user-email">
       <span>Email:</span>
-      <input type="email" />
+      <input type="email" [(ngModel)]="userEmail" />
     </div>
     <div class="user-password">
       <span>Password:</span>
-      <input type="password" />
+      <input type="password" [(ngModel)]="userPassword" />
     </div>
     <div class="button">
-      <button>Login</button>
+      <button (click)="login()">Login</button>
+    </div>
+    <!-- NOTE: just for testing -->
+    <div class="button">
+      <button (click)="logout()">Logout</button>
     </div>
   </div>
 </div>

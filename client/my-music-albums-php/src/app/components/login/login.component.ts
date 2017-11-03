@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GetFromServer } from '../../services/getFromServer.service';
 import { SendObjToServer } from '../../services/sendObjToServer.service';
 
 @Component({
@@ -8,14 +9,28 @@ import { SendObjToServer } from '../../services/sendObjToServer.service';
 })
 export class LoginComponent {
 
-  constructor(private _sendObjToServer: SendObjToServer) { }
+  constructor(private _sendObjToServer: SendObjToServer, private _getFromServer: GetFromServer) { }
 
-  url = 'http://localhost/my_music_albums_php/Ci/index.php/auth_ctrl/login';
+  loginUrl = 'http://localhost/my_music_albums_php/Ci/index.php/auth_ctrl/login';
+  logoutUrl = 'http://localhost/my_music_albums_php/Ci/index.php/auth_ctrl/logout';
 
   results: string[];
 
+  userEmail: string;
+  userPassword: string;
+
   login() {
-    this._sendObjToServer.getDataFromJson(this.url).then((res) => {
+    let userObj = {};
+    userObj['user_email'] = this.userEmail;
+    userObj['user_pass'] = this.userPassword;
+    this._sendObjToServer.sendObjToServer(this.loginUrl, JSON.stringify(userObj)).then((res) => {
+      this.results = res;
+      return this.results;
+    });
+  }
+
+  logout() {
+    this._getFromServer.getDataFromJson(this.logoutUrl).then((res) => {
       this.results = res;
       return this.results;
     });

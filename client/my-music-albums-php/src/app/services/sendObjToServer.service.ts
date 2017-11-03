@@ -8,14 +8,16 @@ export class SendObjToServer {
 
   constructor(private http: Http) { }
 
-  getDataFromJson(url) {
+  sendObjToServer(url, obj) {
+    debugger;
     return this.http
-      .get(url)
+      .post(url, obj)
       .toPromise()
       .then(this.extractData)
   }
 
   extractData(res: Response) {
+    debugger;
     let results = res.json();
     return results;
   }
