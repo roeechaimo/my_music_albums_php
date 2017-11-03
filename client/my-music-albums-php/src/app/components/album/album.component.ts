@@ -13,15 +13,15 @@ export class AlbumComponent implements OnInit {
 
   url = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
 
-  //todo - handle No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:4200' is therefore not allowed access.
+  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
 
   results: string[];
 
   ngOnInit(): void {
-    let albums;
-    this._getFromServer.getDataFromJson(this.url).then((res) => {
-      albums = res;
-    });
+    // let albums;
+    // this._getFromServer.getDataFromJson(this.url).then((res) => {
+    //   albums = res;
+    // });
   }
 
 }

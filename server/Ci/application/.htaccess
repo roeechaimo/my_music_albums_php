@@ -4,3 +4,8 @@
 <IfModule !authz_core_module>
     Deny from all
 </IfModule>
+<FilesMatch "\.(js)$">
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+</FilesMatch>

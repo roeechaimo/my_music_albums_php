@@ -1,0 +1,16 @@
+@import "../../sass/base/_colors.scss";
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .modal-container {
+    border: 1px solid $border;
+
+    div{
+      margin: 5%;
+    }
+  }
+}
