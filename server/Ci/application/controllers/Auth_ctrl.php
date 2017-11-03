@@ -1,5 +1,8 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
 class Auth_ctrl extends CI_Controller {
 
     const SALT = "This is a password salt !@#$%^^123423ASDASDAS";
@@ -9,7 +12,6 @@ class Auth_ctrl extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('session');
-        header('Access-Control-Allow-Origin: *');
         header('content-type: application/json; charset=UTF-8');
         $this->load->model('User_model');
         $json = file_get_contents('php://input');

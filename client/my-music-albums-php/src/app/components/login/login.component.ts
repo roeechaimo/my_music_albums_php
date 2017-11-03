@@ -23,7 +23,8 @@ export class LoginComponent {
     let userObj = {};
     userObj['user_email'] = this.userEmail;
     userObj['user_pass'] = this.userPassword;
-    this._sendObjToServer.sendObjToServer(this.loginUrl, JSON.stringify(userObj)).then((res) => {
+    let jsonStr = JSON.stringify(userObj);
+    this._sendObjToServer.sendObjToServer(this.loginUrl, jsonStr).then((res) => {
       this.results = res;
       return this.results;
     });
