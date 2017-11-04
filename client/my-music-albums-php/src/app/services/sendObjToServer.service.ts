@@ -22,6 +22,9 @@ export class SendObjToServer {
       .then(this.extractData)
   }
 
+  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and auth_ctrl
+  //TODO - solve No 'Access-Control-Allow-Origin'. try and move project to www directory in uwamp
+
   extractData(res: Response) {
     let results = res.json();
     return results;
