@@ -26,14 +26,14 @@ export class LoginComponent {
     let jsonStr = JSON.stringify(userObj);
     this._sendObjToServer.sendObjToServer(this.loginUrl, jsonStr).then((res) => {
       this.results = res;
-      return this.results;
+      console.log(this.results);
     });
   }
 
   logout() {
     this._getFromServer.getDataFromJson(this.logoutUrl).then((res) => {
       this.results = res;
-      return this.results;
+      console.log(this.results);
     });
   }
 

@@ -9,15 +9,15 @@ export class SendObjToServer {
   constructor(private http: Http) { }
 
   sendObjToServer(url, obj) {
-    let options = new RequestOptions({
-      headers: new Headers({
-        // 'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-        // 'Access-Control-Request-Headers': '*'
-      })
-    });
+    // let options = new RequestOptions({
+    //   headers: new Headers({
+    //     'Accept': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': '*'
+    //   })
+    // });
     return this.http
-      .post(url, obj, options)
+      .post(url, obj)
       .toPromise()
       .then(this.extractData)
   }
