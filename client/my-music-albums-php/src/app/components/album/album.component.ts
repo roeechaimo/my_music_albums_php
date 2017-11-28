@@ -16,12 +16,12 @@ export class AlbumComponent implements OnInit {
   //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
 
   results: string[];
+  albums = [];
 
-  ngOnInit(): void {
-    // let albums;
-    // this._getFromServer.getDataFromJson(this.url).then((res) => {
-    //   albums = res;
-    // });
+  ngOnInit(): void {    
+    this._getFromServer.getDataFromJson(this.url).then((res) => {
+      this.albums = res;
+    });
   }
 
 }

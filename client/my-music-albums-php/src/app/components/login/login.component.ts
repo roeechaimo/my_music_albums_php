@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GetFromServer } from '../../services/getFromServer.service';
 import { SendObjToServer } from '../../services/sendObjToServer.service';
 
@@ -9,7 +10,7 @@ import { SendObjToServer } from '../../services/sendObjToServer.service';
 })
 export class LoginComponent {
 
-  constructor(private _sendObjToServer: SendObjToServer, private _getFromServer: GetFromServer) { }
+  constructor(private _sendObjToServer: SendObjToServer, private _getFromServer: GetFromServer, private _router: Router) { }
 
   loginUrl = 'http://localhost/my_music_albums_php/Ci/index.php/auth_ctrl/login';
   logoutUrl = 'http://localhost/my_music_albums_php/Ci/index.php/auth_ctrl/logout';
@@ -27,6 +28,7 @@ export class LoginComponent {
     this._sendObjToServer.sendObjToServer(this.loginUrl, jsonStr).then((res) => {
       this.results = res;
       console.log(this.results);
+      this._router.navigate(['../album']);
     });
   }
 

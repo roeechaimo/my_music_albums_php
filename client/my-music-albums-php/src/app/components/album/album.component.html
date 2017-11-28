@@ -1,11 +1,13 @@
-<div class="album" *ngFor="let album of albums; let i=index">
-  <div class="album-name">
-
-  </div>
-  <div class="album-artist">
-
-  </div>
-  <div class="album-image">
-
+<div class="main">
+  <div class="album" *ngFor="let album of albums; let i=index">
+    <div class="album-name">
+      {{album.album_name}}
+    </div>
+    <div class="album-artist">
+      {{album.album_artist}}
+    </div>
+    <div class="album-image">
+      {{album.album_image}}
+    </div>
   </div>
 </div>
