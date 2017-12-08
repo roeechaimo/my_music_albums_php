@@ -10,13 +10,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlbumComponent } from './components/album/album.component';
+import { PlayerComponentt } from './components/player/player.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'album', component: AlbumComponent },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/album',
     pathMatch: 'full'
   }
 ];
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    AlbumComponent
+    AlbumComponent,
+    PlayerComponentt
   ],
   imports: [
     BrowserModule,

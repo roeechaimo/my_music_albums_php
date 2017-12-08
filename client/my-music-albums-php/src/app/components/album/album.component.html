@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main-container">
   <div class="album" *ngFor="let album of albums; let i=index">
     <div class="album-name">
       {{album.album_name}}
@@ -7,7 +7,14 @@
       {{album.album_artist}}
     </div>
     <div class="album-image">
-      {{album.album_image}}
+      <div class="album-image-content">
+        <div class="button-play">
+          <i class="fa fa-play-circle fa-lg" aria-hidden="true"></i>
+        </div>
+        <div class="album-background-image">
+          <img src="{{album.album_image}}" />
+        </div>
+      </div>
     </div>
   </div>
 </div>

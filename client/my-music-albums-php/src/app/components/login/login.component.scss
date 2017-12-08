@@ -2,18 +2,11 @@
 
 //TODO - give login page some real style
 
-.main-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+.modal-container {
+  border: 2px solid $border;
+  border-radius: 5%;
 
-  .modal-container {
-    border: 2px solid $border;
-    border-radius: 5%;
-
-    div{
-      margin: 5%;
-    }
+  div {
+    margin: 5%;
   }
 }

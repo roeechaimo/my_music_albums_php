@@ -1,0 +1,18 @@
+@import "../../sass/base/_colors.scss";
+
+.player-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5%;
+  padding: 0.5%;
+  border: 2px solid $background;
+  background-color: $background;
+
+  .album-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+  }
+  
+}

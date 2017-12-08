@@ -1,0 +1,44 @@
+@import "../../sass/base/_colors.scss";
+
+.main-container {
+  align-items: baseline;
+  flex-flow: row wrap;
+
+  .album {
+    margin: 2%;
+    padding: 1%;
+    flex-basis: 12%;
+
+    .album-name {
+      font-weight: bold;
+    }
+
+    .album-image {
+      border: 2px solid $border;
+      border-radius: 5%;
+      display: flex;
+      justify-content: center;
+
+      .album-image-content .button-play {
+        width: max-content;
+        z-index: 1;
+        position: absolute;
+        padding: 0.5%;
+      }
+
+      .album-image-content .album-background-image {
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    > div {
+      margin: 1%;
+    }
+  }
+}

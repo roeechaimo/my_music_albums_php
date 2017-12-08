@@ -14,11 +14,12 @@ export class AlbumComponent implements OnInit {
   url = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
 
   //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
+  //TODO - play album in player when clicking play
 
   results: string[];
   albums = [];
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this._getFromServer.getDataFromJson(this.url).then((res) => {
       this.albums = res;
     });
