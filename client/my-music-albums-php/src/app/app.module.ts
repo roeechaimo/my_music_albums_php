@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { GetFromServer } from './services/getFromServer.service';
 import { SendObjToServer } from './services/sendObjToServer.service';
+import { LoadAlbumToPlayer } from './services/LoadAlbumToPlayer.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [GetFromServer, SendObjToServer],
+  providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

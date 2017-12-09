@@ -1,19 +1,35 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { GetFromServer } from '../../services/getFromServer.service';
+import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: 'player.component.html',
   styleUrls: ['player.component.scss']
 })
-export class PlayerComponentt {
+export class PlayerComponentt implements OnInit {
 
-  constructor(private _getFromServer: GetFromServer) { }
+  constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
-  url = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
+  album: object = {};
+  subscription: any;
 
-  results: string[];
-  albums = [];
+  //TODO - make data to be shared not just on init
 
+  ngOnInit() {
+    debugger;
+    this.album = this._loadAlbumToPlayer.getLoadedAlbum();
+    this.subscription = this._loadAlbumToPlayer.albumChange$.subscribe(
+      album => this.selectedAlbum(album));
+  }
+
+  selectedAlbum(album: object) {
+    this.album = album;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
 }

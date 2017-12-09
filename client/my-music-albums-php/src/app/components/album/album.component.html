@@ -1,5 +1,6 @@
 <div class="main-container">
   <div class="album" *ngFor="let album of albums; let i=index">
+    <span class="album-id">{{album.album_id}}</span>
     <div class="album-name">
       {{album.album_name}}
     </div>
@@ -8,7 +9,7 @@
     </div>
     <div class="album-image">
       <div class="album-image-content">
-        <div class="button-play">
+        <div class="button-play" (click)="loadAlbum(album)">
           <i class="fa fa-play-circle fa-lg" aria-hidden="true"></i>
         </div>
         <div class="album-background-image">

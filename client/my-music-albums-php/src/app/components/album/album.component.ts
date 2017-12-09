@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { GetFromServer } from '../../services/getFromServer.service';
+import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
 
 @Component({
   selector: 'app-album',
@@ -9,18 +10,28 @@ import { GetFromServer } from '../../services/getFromServer.service';
 })
 export class AlbumComponent implements OnInit {
 
-  constructor(private _getFromServer: GetFromServer) { }
+  constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
-  url = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
+  showAlbumsUrl = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
+  loadAlbumUrl = 'http://localhost/my_music_albums_php/Ci/index.php/song_ctrl/showPlaylist/';
 
-  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
-  //TODO - play album in player when clicking play
+  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl  
 
   results: string[];
   albums = [];
+  currentPlaylist = [];
+
+  loadAlbum(album){
+    let albumId = album.album_id;
+    this._getFromServer.getDataFromJson(this.loadAlbumUrl + albumId).then((res) => {
+      this.currentPlaylist = res;
+      this._loadAlbumToPlayer.loadAlbum(this.currentPlaylist);
+      console.log(this.currentPlaylist);
+    });
+  }
 
   ngOnInit(): void {
-    this._getFromServer.getDataFromJson(this.url).then((res) => {
+    this._getFromServer.getDataFromJson(this.showAlbumsUrl).then((res) => {
       this.albums = res;
     });
   }

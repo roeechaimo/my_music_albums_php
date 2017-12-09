@@ -9,6 +9,10 @@
     padding: 1%;
     flex-basis: 12%;
 
+    .album-id {
+      display: none;
+    }
+
     .album-name {
       font-weight: bold;
     }
