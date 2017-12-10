@@ -1,24 +1,24 @@
 <div class="player-container">
   <div class="album-details">
     <div class="album-image">
-      <img src="" />
+      <img [src]="album.albumDetails.album_image" />
     </div>
     <div class="now-playing">
       <span>Now playing: </span>
     </div>
     <div class="played-by">
-      <span></span>
+      <span>{{album.playlistDetails[0].song_name}}</span>
     </div>
     <div class="by">
       <span>By</span>
     </div>
     <div class="artist-playing">
-      <span></span>
+      <span>{{album.albumDetails.album_artist}}</span>
     </div>
   </div>
   <div class="player-controls">
-    <audio controls="controls">
-      <source src="" type="audio/mp3"/>
+    <audio controls autoplay>
+      <source [src]="album.playlistDetails[0].song_src" type="audio/mpeg"/>
     </audio>
   </div>
 </div>

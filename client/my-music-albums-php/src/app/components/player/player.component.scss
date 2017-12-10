@@ -14,6 +14,12 @@
     align-items: center;
     justify-content: space-evenly;
     width: 40%;
-  }
 
+    .album-image {
+
+      img {
+        width: 25%;        
+      }
+    }
+  }
 }

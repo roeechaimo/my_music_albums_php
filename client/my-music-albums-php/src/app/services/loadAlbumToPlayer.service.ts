@@ -7,7 +7,7 @@ import { Observer } from 'rxjs/Observer';
 
 export class LoadAlbumToPlayer {
 
-  private album = {};
+  private album = [];
   albumChange$: Observable<object>;
   private _observer: Observer<object>;
 
@@ -16,14 +16,12 @@ export class LoadAlbumToPlayer {
       this._observer = observer).share();
   }
 
-  loadAlbum(album) {
-    debugger;
+  loadAlbum(album) {    
     this.album = album;
-    this._observer.next(album);    
+    this._observer.next(album);
   }
 
   getLoadedAlbum() {
-    debugger;
     return this.album;
   }
 

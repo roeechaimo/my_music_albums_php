@@ -15,7 +15,7 @@ export class AlbumComponent implements OnInit {
   showAlbumsUrl = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
   loadAlbumUrl = 'http://localhost/my_music_albums_php/Ci/index.php/song_ctrl/showPlaylist/';
 
-  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl  
+  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
 
   results: string[];
   albums = [];
@@ -25,8 +25,8 @@ export class AlbumComponent implements OnInit {
     let albumId = album.album_id;
     this._getFromServer.getDataFromJson(this.loadAlbumUrl + albumId).then((res) => {
       this.currentPlaylist = res;
-      this._loadAlbumToPlayer.loadAlbum(this.currentPlaylist);
-      console.log(this.currentPlaylist);
+      let albumObj = {"albumDetails" : album, "playlistDetails" : this.currentPlaylist};
+      this._loadAlbumToPlayer.loadAlbum(albumObj);
     });
   }
 

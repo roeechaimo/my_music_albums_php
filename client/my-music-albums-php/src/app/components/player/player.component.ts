@@ -12,13 +12,14 @@ export class PlayerComponentt implements OnInit {
 
   constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
-  album: object = {};
+  album;
+  audio;
   subscription: any;
 
-  //TODO - make data to be shared not just on init
+  //TODO - make audio pause and load a new one
+  //TODO - set player controls
 
   ngOnInit() {
-    debugger;
     this.album = this._loadAlbumToPlayer.getLoadedAlbum();
     this.subscription = this._loadAlbumToPlayer.albumChange$.subscribe(
       album => this.selectedAlbum(album));
@@ -26,6 +27,15 @@ export class PlayerComponentt implements OnInit {
 
   selectedAlbum(album: object) {
     this.album = album;
+    this.playAudio(this.album);
+    console.log(this.album);
+  }
+
+  playAudio(album){
+    this.audio = null;
+    this.audio = new Audio();
+    this.audio.src = album.playlistDetails[0].song_src;
+    this.audio.play();
   }
 
   ngOnDestroy() {
