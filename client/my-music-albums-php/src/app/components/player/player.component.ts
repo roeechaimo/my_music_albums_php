@@ -12,6 +12,8 @@ export class PlayerComponentt implements OnInit {
 
   constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
+  //TODO - handle with album image error on init
+  //TODO - fix style of player
   album;
   albumToCheck;
   audio;
