@@ -15,7 +15,7 @@ export class GetFromServer {
       .then(this.extractData)
   }
 
-  extractData(res: Response) {
+  extractData(res: Response) {    
     let results = res.json();
     return results;
   }

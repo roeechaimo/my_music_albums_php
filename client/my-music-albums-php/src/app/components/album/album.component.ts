@@ -21,7 +21,7 @@ export class AlbumComponent implements OnInit {
   albums = [];
   currentPlaylist = [];
 
-  loadAlbum(album){
+  loadAlbum(album){    
     let albumId = album.album_id;
     this._getFromServer.getDataFromJson(this.loadAlbumUrl + albumId).then((res) => {
       this.currentPlaylist = res;
