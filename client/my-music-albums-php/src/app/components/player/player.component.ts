@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { GetFromServer } from '../../services/getFromServer.service';
 import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
+import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 
 @Component({
   selector: 'app-player',
   templateUrl: 'player.component.html',
-  styleUrls: ['player.component.scss']
+  styleUrls: ['player.component.scss'],
+  animations: [SLIDE_ANIMATION]
 })
 export class PlayerComponentt implements OnInit {
 
@@ -19,6 +21,7 @@ export class PlayerComponentt implements OnInit {
   albumToCheck;
   audio;
   playingSong;
+  playerState: string = 'out';
   showPlay: boolean = false;
   showPause: boolean = true;
   subscription: any;
@@ -53,6 +56,7 @@ export class PlayerComponentt implements OnInit {
     this.audio = new Audio();
     this.audio.src = album.playlistDetails[songIndex].song_src;
     this.audio.play();
+    this.togglePlayer();
   }
 
   pauseSong() {
@@ -91,7 +95,7 @@ export class PlayerComponentt implements OnInit {
     if (this.album) {
       let currentSongIndex = this.songsArray.indexOf(playingSong);
       let previousSongIndex = this.songsArray[currentSongIndex == 0 ? this.songsArray.length - 1 : currentSongIndex - 1];
-      let nextSongIndex = this.songsArray[currentSongIndex == this.songsArray.length -1 ? 0 : currentSongIndex + 1];
+      let nextSongIndex = this.songsArray[currentSongIndex == this.songsArray.length - 1 ? 0 : currentSongIndex + 1];
       let songOrderObj = {
         "currentSongIndex": currentSongIndex,
         "previousSongIndex": previousSongIndex,
@@ -99,6 +103,10 @@ export class PlayerComponentt implements OnInit {
       }
       return songOrderObj;
     }
+  }
+
+  togglePlayer() {    
+    this.playerState = this.playerState === 'out' ? 'in' : 'in';
   }
 
   ngOnDestroy() {

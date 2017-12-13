@@ -8,14 +8,21 @@
   border: 2px solid $background;
   background-color: $background;
   border-radius: 1%;
+  height: 7%;
 
   .album-details {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 60%;
+    width: 70%;
+
+    div {
+      width: 33.33%;
+    }
 
     .album-image {
+      width: auto;
+      object-fit: cover;
+
       img {
         width: 25%;
       }

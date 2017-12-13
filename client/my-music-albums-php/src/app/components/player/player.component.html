@@ -1,14 +1,14 @@
-<div class="player-container">
+<div class="player-container" [@slideAnimation] = "playerState">
   <div class="album-details">
     <div class="album-image">
       <img src="{{album.albumDetails.album_image}}" />
     </div>
     <div class="now-playing">
-      <span>Now playing: </span>
+      <b>Now playing: </b>
       <span>{{playingSong.song_name}}</span>
     </div>
     <div class="artist-playing">
-      <span>By: </span>
+      <b>By: </b>
       <span>{{album.albumDetails.album_artist}}</span>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { GetFromServer } from './services/getFromServer.service';
 import { SendObjToServer } from './services/sendObjToServer.service';
 import { LoadAlbumToPlayer } from './services/LoadAlbumToPlayer.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
       { enableTracing: true }
     ),
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule
   ],
   providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer],
   bootstrap: [AppComponent]
