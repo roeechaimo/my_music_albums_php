@@ -12,14 +12,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlbumComponent } from './components/album/album.component';
+import { AlbumDetailsComponent } from './components/album.details/album.details.component';
 import { PlayerComponentt } from './components/player/player.component';
 
+//TODO - add route to album.details.component
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'album', component: AlbumComponent },
+  { path: 'albums', component: AlbumComponent },
   {
     path: '',
-    redirectTo: '/album',
+    redirectTo: '/albums',
     pathMatch: 'full'
   }
 ];
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     AlbumComponent,
+    AlbumDetailsComponent,
     PlayerComponentt
   ],
   imports: [
