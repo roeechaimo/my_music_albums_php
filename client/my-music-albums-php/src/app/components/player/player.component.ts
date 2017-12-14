@@ -13,8 +13,7 @@ import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 export class PlayerComponentt implements OnInit {
 
   constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
-
-  //TODO - handle with album image error on init
+  
   //TODO - fix style of player
   album;
   songsArray;
@@ -105,7 +104,7 @@ export class PlayerComponentt implements OnInit {
     }
   }
 
-  togglePlayer() {    
+  togglePlayer() {
     this.playerState = this.playerState === 'out' ? 'in' : 'in';
   }
 

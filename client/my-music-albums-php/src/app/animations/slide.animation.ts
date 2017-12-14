@@ -1,12 +1,11 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-//@TODO - make animation work
 export const SLIDE_ANIMATION =
   trigger('slideAnimation', [
     state('in', style({
-      transform: 'translateY(0)'
+      transform: 'translateX(0)'
     })),
     state('out', style({
-      transform: 'translateY(500px)'
+      transform: 'translateX(-110%)'
     })),
     transition('out => in', animate('800ms ease-in-out'))
   ]);
