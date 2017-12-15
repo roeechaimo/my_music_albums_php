@@ -14,7 +14,8 @@ export class AlbumDetailsComponent {
   showAlbumsUrl = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
   loadAlbumUrl = 'http://localhost/my_music_albums_php/Ci/index.php/song_ctrl/showPlaylist/';
 
-  //TODO - solve No 'Access-Control-Allow-Origin'. added code in .htaccess and Albums_ctrl
+  //TODO - make the component synchronize with album component
+  //TODO - fix player animation 
 
   results: string[];
   albums = [];
