@@ -11,10 +11,8 @@ export class AlbumDetailsComponent implements OnInit {
 
   constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
-  //TODO - make the component synchronize with album component
-  //TODO - fix player animation
-  //TODO - fix errors on init  
-  //TODO - fix element style
+  //TODO - make the component synchronize with player component
+  //TODO - add info button on each album to load selected album to album details component instead of play button    
 
   album: object = {};
   subscription: any;

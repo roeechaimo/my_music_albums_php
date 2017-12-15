@@ -1,7 +1,24 @@
-.album-id {
-  display: none;
-}
+@import "../../sass/base/_colors.scss";
 
-ol {
-  padding-left: 5%;
+.side-container {
+  height: 100%;
+  border: 2px solid $border;
+  border-radius: 2%;
+  margin-right: 2%;
+
+  > div {
+    padding-left: 5%;
+  }
+
+  .album-id {
+    display: none;
+  }
+
+  .album-details {
+    text-align: center;
+  }
+
+  ol {
+    padding-left: 5%;
+  }
 }
