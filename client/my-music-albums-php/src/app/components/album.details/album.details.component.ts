@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetFromServer } from '../../services/getFromServer.service';
+import { OnInit } from '@angular/core';
 import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
 
 @Component({
@@ -7,27 +7,28 @@ import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
   templateUrl: 'album.details.component.html',
   styleUrls: ['album.details.component.scss']
 })
-export class AlbumDetailsComponent {
+export class AlbumDetailsComponent implements OnInit {
 
-  constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
-
-  showAlbumsUrl = 'http://localhost/my_music_albums_php/Ci/index.php/albums_ctrl/show';
-  loadAlbumUrl = 'http://localhost/my_music_albums_php/Ci/index.php/song_ctrl/showPlaylist/';
+  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
   //TODO - make the component synchronize with album component
-  //TODO - fix player animation 
+  //TODO - fix player animation
+  //TODO - fix errors on init  
+  //TODO - fix element style
 
-  results: string[];
-  albums = [];
+  album: object = {};
+  subscription: any;
   currentPlaylist = [];
 
-  loadAlbum(album){
-    let albumId = album.album_id;
-    this._getFromServer.getDataFromJson(this.loadAlbumUrl + albumId).then((res) => {
-      this.currentPlaylist = res;
-      let albumObj = {"albumDetails" : album, "playlistDetails" : this.currentPlaylist};
-      this._loadAlbumToPlayer.loadAlbum(albumObj);
-    });
+  ngOnInit() {
+    this.album = this._loadAlbumToPlayer.getLoadedAlbum();
+    this.subscription = this._loadAlbumToPlayer.albumChange$.subscribe(
+      album => this.selectedAlbum(album));
+  }
+
+  selectedAlbum(album: object) {
+    this.album = album;
+    console.log(this.album);
   }
 
 }

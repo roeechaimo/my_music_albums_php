@@ -1,24 +1,24 @@
 <div class="side-container">
-  <span class="album-id">{{album.album_id}}</span>
+  <span class="album-id">{{album.albumDetails.album_id}}</span>
   <div class="album-details">
     <h3>Selected album details:</h3>
   </div>
   <div class="album-name">
-    {{album.album_name}}
+    {{album.albumDetails.album_name}}
   </div>
   <div class="album-artist">
-    {{album.album_artist}}
+    {{album.albumDetails.album_artist}}
   </div>
   <div class="album-image">
     <div class="album-image-content">
       <div class="album-background-image">
-        <img src="{{album.album_image}}" />
+        <img src="{{album.albumDetails.album_image}}" />
       </div>
     </div>
     <div class="song-list">
       <ol>
-        <li>
-          sd
+        <li *ngFor="let song of album.playlistDetails; let i=index">
+          {{song.song_name}}
         </li>
       </ol>
     </div>
