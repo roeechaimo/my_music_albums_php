@@ -11,8 +11,7 @@ export class AlbumDetailsComponent implements OnInit {
 
   constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
-  //TODO - make the component synchronize with player component
-  //TODO - add info button on each album to load selected album to album details component instead of play button    
+  //TODO - make the component synchronize with player component  
 
   album: object = {};
   subscription: any;
@@ -25,8 +24,19 @@ export class AlbumDetailsComponent implements OnInit {
   }
 
   selectedAlbum(album: object) {
+    if (!this.validateAlbum(album)) {
+      return false;
+    }
     this.album = album;
     console.log(this.album);
+  }
+
+  //Check if album can or should be loaded to player
+  validateAlbum(album) {
+    if (album.purpose !== 'info') {
+      return false;
+    }
+    return true;
   }
 
 }

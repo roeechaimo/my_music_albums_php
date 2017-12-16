@@ -23,11 +23,23 @@
       display: flex;
       justify-content: center;
 
-      .album-image-content .button-play {
-        width: max-content;
-        z-index: 1;
-        position: absolute;
-        padding: 0.5%;
+      .album-image-content {
+        position: relative;
+
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          z-index: 1;
+          position: absolute;
+          left: 0;
+          right: 0;
+
+          .button-info,
+          .button-play {
+            width: max-content;
+            padding: 4%;
+          }
+        }
       }
 
       .album-image-content .album-background-image {

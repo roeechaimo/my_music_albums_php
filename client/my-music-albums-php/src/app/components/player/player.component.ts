@@ -13,7 +13,7 @@ import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 export class PlayerComponentt implements OnInit {
 
   constructor(private _getFromServer: GetFromServer, private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
-  
+
   //TODO - fix style of player
   album;
   songsArray;
@@ -33,10 +33,8 @@ export class PlayerComponentt implements OnInit {
 
   selectedAlbum(album: object) {
     this.albumToCheck = album;
-    if (this.albumToCheck.playlistDetails.length < 1) {
-      //TODO - display error in case song missing details
-      console.log(JSON.stringify(this.albumToCheck) + ' missing some details');
-      return;
+    if (!this.validateAlbum(album)) {
+      return false;
     }
     this.album = album;
     this.songsArray = this.album.playlistDetails;
@@ -45,6 +43,19 @@ export class PlayerComponentt implements OnInit {
     this.showPlay = false;
     this.showPause = true;
     console.log(this.album);
+  }
+
+  //Check if album can or should be loaded to player
+  validateAlbum(album) {
+    if (album.purpose !== 'play') {
+      return false;
+    }
+    if (album.playlistDetails.length < 1) {
+      //TODO - display error in case song missing details
+      console.log(JSON.stringify(album) + ' missing some details');
+      return false;
+    }
+    return true;
   }
 
   playAudio(album, songIndex) {
@@ -61,16 +72,14 @@ export class PlayerComponentt implements OnInit {
   pauseSong() {
     if (this.audio) {
       this.audio.pause();
-      this.showPause = false;
-      this.showPlay = true;
+      this.showOrHidePausePlay(true);
     }
   }
 
   keepPlayingSong() {
     if (this.audio) {
       this.audio.play();
-      this.showPlay = false;
-      this.showPause = true;
+      this.showOrHidePausePlay(false);
     }
   }
 
@@ -78,16 +87,24 @@ export class PlayerComponentt implements OnInit {
     let songOrderObj = this.checkNextAndBackSongs(this.playingSong);
     this.playAudio(this.album, this.songsArray.indexOf(songOrderObj.nextSongIndex));
     this.playingSong = songOrderObj.nextSongIndex;
-    this.showPause = true;
-    this.showPlay = false;
+    this.showOrHidePausePlay(false);
   }
 
   playPreviousSong() {
     let songOrderObj = this.checkNextAndBackSongs(this.playingSong);
     this.playAudio(this.album, this.songsArray.indexOf(songOrderObj.previousSongIndex));
     this.playingSong = songOrderObj.previousSongIndex;
-    this.showPause = true;
-    this.showPlay = false;
+    this.showOrHidePausePlay(false);
+  }
+
+  showOrHidePausePlay(showPlay) {
+    if (showPlay) {
+      this.showPause = false;
+      this.showPlay = true;
+    } else {
+      this.showPause = true;
+      this.showPlay = false;
+    }
   }
 
   checkNextAndBackSongs(playingSong) {
