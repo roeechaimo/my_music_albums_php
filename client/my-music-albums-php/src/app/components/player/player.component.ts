@@ -20,7 +20,7 @@ export class PlayerComponentt implements OnInit {
   albumToCheck;
   audio;
   playingSong;
-  playerState: string = 'out';
+  playerState: string = 'outFromLeft';
   showPlay: boolean = false;
   showPause: boolean = true;
   subscription: any;
@@ -122,7 +122,7 @@ export class PlayerComponentt implements OnInit {
   }
 
   togglePlayer() {
-    this.playerState = this.playerState === 'out' ? 'in' : 'in';
+    this.playerState = this.playerState === 'outFromLeft' ? 'inFromLeft' : 'inFromLeft';
   }
 
   ngOnDestroy() {

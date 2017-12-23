@@ -5,9 +5,22 @@
   border: 2px solid $border;
   border-radius: 2%;
   margin-right: 2%;
+  position: relative;
 
   > div {
     padding-left: 5%;
+  }
+
+  .arrows {
+    display: flex;
+    position: absolute;
+    border: 1px solid $border;
+    border-radius: 25%;
+    background-color: $border;
+    padding: 0;
+    top: 50%;
+    left: -1.3vh;
+    z-index: 1;
   }
 
   .album-id {

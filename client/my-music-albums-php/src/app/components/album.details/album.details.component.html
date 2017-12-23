@@ -1,4 +1,8 @@
-<div class="side-container">
+<div class="side-container" [@slideAnimation] = "detailsState">
+  <div class="arrows" (click) = "toggleDetails($event)">
+    <i class="fa fa-angle-left custom"></i>
+    <i class="fa fa-angle-right custom"></i>
+  </div>
   <span class="album-id">{{album.albumDetails?.album_id}}</span>
   <div class="album-details">
     <h3>Selected album details:</h3>
