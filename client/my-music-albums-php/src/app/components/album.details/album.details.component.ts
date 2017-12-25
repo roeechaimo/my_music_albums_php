@@ -45,10 +45,13 @@ export class AlbumDetailsComponent implements OnInit {
 
   toggleDetails(event) {    
     let target = event.target;
-    if (typeof target === 'object' && target.nodeType !== 1) {
+    let hasClasses = target.classList;
+    if (!hasClasses) {
       this.detailsState = this.detailsState === 'outFromRight' ? 'inFromRight' : 'inFromRight';
-    } else {
+    } else if (target.classList.contains('fa-angle-left') || target.classList.contains('fa-angle-right')) {
       this.detailsState = this.detailsState === 'outFromRight' ? 'inFromRight' : 'outFromRight';
+    } else {
+      this.detailsState = this.detailsState === 'outFromRight' ? 'inFromRight' : 'inFromRight';
     }
   }
 

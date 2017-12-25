@@ -125,6 +125,11 @@ export class PlayerComponentt implements OnInit {
     this.playerState = this.playerState === 'outFromLeft' ? 'inFromLeft' : 'inFromLeft';
   }
 
+  loadAlbumDetails(album, purpose) {      
+    let albumObj = { "albumDetails": album.albumDetails, "playlistDetails": album.playlistDetails, "purpose": purpose };
+    this._loadAlbumToPlayer.loadAlbum(albumObj);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
