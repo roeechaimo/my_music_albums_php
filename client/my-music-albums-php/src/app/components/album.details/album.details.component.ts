@@ -11,9 +11,7 @@ import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 })
 export class AlbumDetailsComponent implements OnInit {
 
-  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
-
-  //TODO - make the component synchronize with player component
+  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }  
 
   album: object = {};
   subscription: any;
@@ -43,7 +41,7 @@ export class AlbumDetailsComponent implements OnInit {
     return true;
   }
 
-  toggleDetails(event) {    
+  toggleDetails(event) {
     let target = event.target;
     let hasClasses = target.classList;
     if (!hasClasses) {

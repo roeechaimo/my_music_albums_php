@@ -8,7 +8,10 @@ class Album_model extends CI_Model {
     }
 
     public function getAllAlbums() {
-        $query = $this->db->get('albums');
+        $this->db->select('*');
+        $this->db->from('albums');
+        $this->db->join('users', 'albums.user_id = users.user_id', 'left');
+        $query = $this->db->get();        
         return $query->result();
     }
 
@@ -34,7 +37,7 @@ class Album_model extends CI_Model {
 
     public function deleteAlbum($id) {
         $tables = array('albums', 'playlists');
-        $this->db->where('album_id', $id);        
+        $this->db->where('album_id', $id);
         $this->db->delete($tables);
         $numberOfRows = $this->db->affected_rows();
         return $numberOfRows;
