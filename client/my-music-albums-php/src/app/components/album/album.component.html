@@ -19,7 +19,10 @@
           <div class="button-remove" (click)="loadAlbum(album, 'remove')">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
           </div>
-          <!-- TODO: add delete and edit buttons  -->
+          <div class="button-edit" (click)="loadAlbum(album, 'edit')">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </div>
+          <!-- TODO: fix style buttons  -->
         </div>
         <div class="album-background-image">
           <img src="{{album.album_image}}" />

@@ -33,12 +33,23 @@
           position: absolute;
           left: 0;
           right: 0;
+          height: 100%;
+          flex-wrap: wrap;
 
+          .button-edit,
           .button-info,
           .button-play,
-          .button-remove{
-            width: max-content;
+          .button-remove {
+            display: flex;
+            flex-direction: column;
             padding: 4%;
+            text-align: center;
+            flex: 0 1 25%;
+          }
+
+          .button-edit,
+          .button-remove {
+            align-self: flex-end;
           }
         }
       }
