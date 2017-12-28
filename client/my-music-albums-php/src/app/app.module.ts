@@ -16,6 +16,8 @@ import { AlbumComponent } from './components/album/album.component';
 import { AlbumDetailsComponent } from './components/album.details/album.details.component';
 import { PlayerComponentt } from './components/player/player.component';
 
+//TODO - add user component
+
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'albums', component: AlbumsOverallComponent },
