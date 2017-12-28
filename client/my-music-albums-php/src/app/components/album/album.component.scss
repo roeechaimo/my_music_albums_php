@@ -43,12 +43,24 @@
             display: flex;
             flex-direction: column;
             padding: 4%;
-            text-align: center;
-            flex: 0 1 25%;
+            flex: 40%;
           }
 
-          .button-edit,
+          .button-play {
+            text-align: left;
+          }
+
+          .button-info {
+            text-align: right;
+          }
+
           .button-remove {
+            text-align: left;
+            align-self: flex-end;
+          }
+
+          .button-edit {
+            text-align: right;
             align-self: flex-end;
           }
         }
