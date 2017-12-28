@@ -7,7 +7,7 @@
   <div class="album-details">
     <h3>Selected album details:</h3>
   </div>
-  <div class="album-name">
+  <div class="album-user hover">
     {{album.albumDetails?.user_email}}
   </div>
   <div class="album-name">
@@ -21,6 +21,9 @@
       <div class="album-background-image">
         <img src="{{album.albumDetails?.album_image}}" />
       </div>
+    </div>
+    <div *ngIf="showPlayButton" class="button-play" (click)="loadAlbum(album, 'play')">
+      <i class="fa fa-play-circle fa-lg" aria-hidden="true"></i>
     </div>
     <div class="song-list">
       <ol>

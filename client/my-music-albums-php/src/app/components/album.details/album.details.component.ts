@@ -11,12 +11,13 @@ import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 })
 export class AlbumDetailsComponent implements OnInit {
 
-  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }  
+  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
 
   album: object = {};
   subscription: any;
   currentPlaylist = [];
   detailsState: string = 'outFromRight';
+  showPlayButton: boolean = false;
 
   ngOnInit() {
     this.album = this._loadAlbumToPlayer.getLoadedAlbum();
@@ -29,8 +30,16 @@ export class AlbumDetailsComponent implements OnInit {
       return false;
     }
     this.album = album;
+    this.showPlayButton = this.checkPlaylistLength(this.album);
     this.toggleDetails(event);
     console.log(this.album);
+  }
+
+  checkPlaylistLength(album) {
+    if ((album.hasOwnProperty('playlistDetails')) && (album.playlistDetails.length > 0)) {
+      return true;
+    }
+    return false;
   }
 
   //Check if album can or should be loaded to player
@@ -51,6 +60,11 @@ export class AlbumDetailsComponent implements OnInit {
     } else {
       this.detailsState = this.detailsState === 'outFromRight' ? 'inFromRight' : 'inFromRight';
     }
+  }
+
+  loadAlbum(album, purpose) {
+    let albumObj = { "albumDetails": album.albumDetails, "playlistDetails": album.playlistDetails, "purpose": purpose };
+    this._loadAlbumToPlayer.loadAlbum(albumObj);
   }
 
 }
