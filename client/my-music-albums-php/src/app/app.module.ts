@@ -6,17 +6,17 @@ import { HttpModule } from '@angular/http';
 import { GetFromServer } from './services/getFromServer.service';
 import { SendObjToServer } from './services/sendObjToServer.service';
 import { LoadAlbumToPlayer } from './services/LoadAlbumToPlayer.service';
+import { LoadUserAlbums } from './services/LoadUserAlbums.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlbumsOverallComponent } from './components/albums.overall/albums.overall.component';
+import { AlbumsComponent } from './components/albums/albums.component';
 import { AlbumComponent } from './components/album/album.component';
 import { AlbumDetailsComponent } from './components/album.details/album.details.component';
 import { PlayerComponentt } from './components/player/player.component';
-
-//TODO - add user component
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -34,6 +34,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     AlbumsOverallComponent,
+    AlbumsComponent,
     AlbumComponent,
     AlbumDetailsComponent,
     PlayerComponentt
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
     HttpModule,
     BrowserAnimationsModule
   ],
-  providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer],
+  providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer, LoadUserAlbums],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

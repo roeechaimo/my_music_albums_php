@@ -1,5 +1,9 @@
 @import "../../sass/base/_colors.scss";
 
+.user{
+  text-align: center;
+}
+
 .main-container {
   align-items: baseline;
   flex-flow: row wrap;
@@ -9,7 +13,7 @@
     padding: 1%;
     flex-basis: 12%;
 
-    .album-id {
+    .album-id, .user-id {
       display: none;
     }
 

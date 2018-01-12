@@ -7,7 +7,7 @@
   <div class="album-details">
     <h3>Selected album details:</h3>
   </div>
-  <div class="album-user hover">
+  <div class="album-user hover" (click)="loadUser(album)">
     {{album.albumDetails?.user_email}}
   </div>
   <div class="album-name">

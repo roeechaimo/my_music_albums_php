@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { LoadAlbumToPlayer } from '../../services/LoadAlbumToPlayer.service';
+import { LoadUserAlbums } from '../../services/LoadUserAlbums.service';
 import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 
 @Component({
@@ -11,7 +12,7 @@ import { SLIDE_ANIMATION } from '../../animations/slide.animation';
 })
 export class AlbumDetailsComponent implements OnInit {
 
-  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer) { }
+  constructor(private _loadAlbumToPlayer: LoadAlbumToPlayer, private _loadUserAlbums: LoadUserAlbums) { }
 
   album: object = {};
   subscription: any;
@@ -23,6 +24,13 @@ export class AlbumDetailsComponent implements OnInit {
     this.album = this._loadAlbumToPlayer.getLoadedAlbum();
     this.subscription = this._loadAlbumToPlayer.albumChange$.subscribe(
       album => this.selectedAlbum(album));
+  }
+
+  loadUser(album){
+    let userObj = {"user_id": album.albumDetails.user_id,
+                   "user_email": album.albumDetails.user_email,
+                   "user_role": album.albumDetails.user_role};
+    this._loadUserAlbums.loadUser(userObj);
   }
 
   selectedAlbum(album: object) {
