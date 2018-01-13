@@ -11,7 +11,7 @@ class Album_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('albums');
         $this->db->join('users', 'albums.user_id = users.user_id', 'left');
-        $query = $this->db->get();        
+        $query = $this->db->get();
         return $query->result();
     }
 
@@ -21,7 +21,11 @@ class Album_model extends CI_Model {
     }
 
     public function getUserAlbums($userId) {
-        $query = $this->db->get_where('albums', ['user_id' => $userId]);
+        $this->db->select('*');
+        $this->db->from('albums');
+        $this->db->join('users', 'albums.user_id = users.user_id', 'left');
+        $this->db->where('users.user_id', $userId);        
+        $query = $this->db->get();
         return $query->result();
     }
 

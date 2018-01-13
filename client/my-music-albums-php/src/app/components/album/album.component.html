@@ -1,5 +1,8 @@
-<div class="user" [hidden]="!userToShow.user_email">
-  <h3><span>{{userToShow.user_email}}</span><span>'s albums</span></h3>
+<div class="user">
+  <div class="back" [hidden]="!userToShow.user_email" (click)="ngOnInit()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+  </div>
+  <h3 [hidden]="!userToShow.user_email"><span>{{userToShow.user_email}}</span><span>'s albums</span></h3>
 </div>
 <div class="main-container">
   <div class="album" *ngFor="let album of albums; let i=index">
