@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor() { }
+
+  //TODO - create add album modal and service
+  addAlbum(){
+
+  }
+
 }

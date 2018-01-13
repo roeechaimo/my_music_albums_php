@@ -37,7 +37,6 @@ export class AlbumComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this._getFromServer.getDataFromJson(this.showAlbumsUrl).then((res) => {
       this.albums = res;
     });
