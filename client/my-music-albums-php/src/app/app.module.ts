@@ -8,6 +8,7 @@ import { SendObjToServer } from './services/sendObjToServer.service';
 import { LoadAlbumToPlayer } from './services/LoadAlbumToPlayer.service';
 import { LoadUserAlbums } from './services/LoadUserAlbums.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,6 +18,7 @@ import { AlbumsComponent } from './components/albums/albums.component';
 import { AlbumComponent } from './components/album/album.component';
 import { AlbumDetailsComponent } from './components/album.details/album.details.component';
 import { PlayerComponentt } from './components/player/player.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     AlbumsComponent,
     AlbumComponent,
     AlbumDetailsComponent,
-    PlayerComponentt
+    PlayerComponentt,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +50,10 @@ const appRoutes: Routes = [
     ),
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
+  entryComponents: [DialogComponent],
   providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer, LoadUserAlbums],
   bootstrap: [AppComponent]
 })
