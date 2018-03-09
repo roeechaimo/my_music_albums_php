@@ -2,8 +2,9 @@ html {
   height: 100%;
 
   body {
-    height: 100%;
-    margin: 0;
+    // height: 100%;
+    // margin: 0;
+    position: relative;
     overflow-x: hidden;
 
     .main-container {
@@ -13,7 +14,18 @@ html {
       height: 100%;
     }
 
-    i:hover, .hover {
+    .cdk-overlay-container {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+
+      :nth-child(2) > div {
+        margin: auto;
+      }
+    }
+
+    .hover,
+    i:hover {
       cursor: pointer;
     }
   }

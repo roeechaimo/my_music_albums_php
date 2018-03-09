@@ -10,6 +10,7 @@ import { LoadUserAlbums } from './services/LoadUserAlbums.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material';
 
+import { DialogComponent } from './components/dialog/dialog.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,7 +19,6 @@ import { AlbumsComponent } from './components/albums/albums.component';
 import { AlbumComponent } from './components/album/album.component';
 import { AlbumDetailsComponent } from './components/album.details/album.details.component';
 import { PlayerComponentt } from './components/player/player.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,15 +32,15 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,
+    DialogComponent,
+    AppComponent,    
     HeaderComponent,
     LoginComponent,
     AlbumsOverallComponent,
     AlbumsComponent,
     AlbumComponent,
     AlbumDetailsComponent,
-    PlayerComponentt,
-    DialogComponent
+    PlayerComponentt
   ],
   imports: [
     BrowserModule,

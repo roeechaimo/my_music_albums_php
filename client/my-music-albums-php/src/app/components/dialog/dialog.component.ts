@@ -11,9 +11,7 @@ export class DialogComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
 
-  test: string;
-
   openDialog() {
-    this.dialogRef.close(this.test);
+    this.dialogRef.close();
   }
 }

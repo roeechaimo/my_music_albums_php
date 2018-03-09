@@ -11,20 +11,18 @@ export class HeaderComponent {
 
   constructor(public dialog: MatDialog) { }
 
-  test: string;
-
   //TODO - edit this dialog to fit our needs
   addAlbum() {
     let dialog = this.dialog.open(DialogComponent);
 
-    dialog.afterClosed()
-      .subscribe(selection => {
-        if (selection) {
-          this.test = selection;
-        } else {
-          // User clicked 'Cancel' or clicked outside the dialog
-        }
-      });
+    // dialog.afterClosed()
+    //   .subscribe(selection => {
+    //     if (selection) {
+    //       this.test = selection;
+    //     } else {
+    //       // User clicked 'Cancel' or clicked outside the dialog
+    //     }
+    //   });
   }
 
 }
