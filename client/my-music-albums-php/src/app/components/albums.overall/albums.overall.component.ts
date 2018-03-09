@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { DialogComponent } from '../dialog/dialog.component';
-import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-albums-overall',
@@ -9,21 +7,7 @@ import { MatDialog } from '@angular/material';
 })
 export class AlbumsOverallComponent {
 
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
-  selectedEmoji: string;
-
-  openEmojiDialog() {
-    let dialog = this.dialog.open(DialogComponent);
-
-    // dialog.afterClosed()
-    //   .subscribe(selection => {
-    //     if (selection) {
-    //       this.selectedEmoji = selection;
-    //     } else {
-    //       // User clicked 'Cancel' or clicked outside the dialog
-    //     }
-    //   });
-  }
 
 }

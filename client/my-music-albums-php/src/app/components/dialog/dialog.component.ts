@@ -11,9 +11,9 @@ export class DialogComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
 
-  choosenEmoji: string;
+  test: string;
 
-  openAddFileDialog() {
-    this.dialogRef.close(this.choosenEmoji);
+  openDialog() {
+    this.dialogRef.close(this.test);
   }
 }

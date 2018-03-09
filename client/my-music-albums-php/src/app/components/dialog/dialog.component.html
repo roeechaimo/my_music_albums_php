@@ -3,3 +3,12 @@
 <div mat-dialog-content>
   shit!
 </div>
+
+<div mat-dialog-actions>
+  <button mat-button color="primary">
+    Okays!
+  </button>
+  <button mat-button (click)="dialogRef.close()">
+    Cancel
+  </button>
+</div>

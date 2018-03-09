@@ -53,8 +53,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  entryComponents: [DialogComponent],
   providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer, LoadUserAlbums],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }
