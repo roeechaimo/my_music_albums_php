@@ -9,6 +9,7 @@ import { LoadAlbumToPlayer } from './services/LoadAlbumToPlayer.service';
 import { LoadUserAlbums } from './services/LoadUserAlbums.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material';
+import { DialogService } from './services/dialog.service';
 
 import { DialogComponent } from './components/dialog/dialog.component';
 import { AppComponent } from './app.component';
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     DialogComponent,
-    AppComponent,    
+    AppComponent,
     HeaderComponent,
     LoginComponent,
     AlbumsOverallComponent,
@@ -53,7 +54,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatDialogModule
   ],
-  providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer, LoadUserAlbums],
+  exports: [
+    DialogComponent
+  ],
+  providers: [GetFromServer, SendObjToServer, LoadAlbumToPlayer, LoadUserAlbums, DialogService],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent]
 })

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { DialogComponent } from '../dialog/dialog.component';
-import { MatDialog } from '@angular/material';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +8,15 @@ import { MatDialog } from '@angular/material';
 })
 export class HeaderComponent {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private dialogService: DialogService) { }
+
+  public result: any;
 
   //TODO - edit this dialog to fit our needs
   addAlbum() {
-    let dialog = this.dialog.open(DialogComponent);
+    this.dialogService
+      .confirm('Add Album', "Fill The Album's Details")
+      .subscribe(res => this.result = res);
 
     // dialog.afterClosed()
     //   .subscribe(selection => {
