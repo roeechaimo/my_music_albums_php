@@ -2,7 +2,33 @@
   <h3 mat-dialog-title>{{title}}</h3>
 
   <div mat-dialog-content>
-    {{content}}
+    <h5>{{content}}</h5>
+    <div class="form-container">
+      <div class="album-name-container">
+        <div>
+          <span>Album name: </span>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+      </div>
+      <div class="album-artist-container">
+        <div>
+          <span>Album artist: </span>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+      </div>
+      <div class="album-image-container">
+        <div>
+          <span>Album image link: </span>
+        </div>
+        <div>
+          <input type="text" />
+        </div>
+      </div>
+    </div>
   </div>
 
   <div mat-dialog-actions>
