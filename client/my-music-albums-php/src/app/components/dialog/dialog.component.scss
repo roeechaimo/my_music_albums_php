@@ -3,6 +3,15 @@
     > div {
       margin-bottom: 1vw;
       display: flex;
+      justify-content: space-between;
+
+      > div {
+        width: 50%;
+
+        > input {
+          width: 100%;
+        }
+      }
     }
   }
 }

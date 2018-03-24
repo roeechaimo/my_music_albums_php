@@ -17,10 +17,16 @@ html {
       top: 20%;
       width: 100%;
       z-index: 10;
+      display: flex;
+      justify-content: center;
 
-      :nth-child(2) > div {
-        margin: auto;
-        background-color: #ffffff;
+      .cdk-global-overlay-wrapper {
+        width: 50%;
+
+        > div {
+          margin: auto;
+          background-color: #ffffff;
+        }
       }
     }
 
